@@ -1,0 +1,432 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  padding: 20px 0;
+}
+
+html{
+
+    scroll-behavior: smooth;
+} 
+
+/* Header de NAvbar */
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 50px;
+  box-shadow: 0 1px 8px #ddd;
+}
+
+#nav-title {
+  margin-right: auto;
+  font-size: 1.5em;
+  
+}
+
+#nav-title img {
+  max-width: 200px;
+  height: auto; 
+  display: block; 
+}
+
+header li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+header a {
+  text-decoration: none;
+  color: #555;
+  transition: all 0.3s ease 0s;
+}
+
+header a:hover {
+  color: #b2dfdb;
+}
+
+
+/* Container grid  */
+
+
+section{
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#menu{
+    background-color:whitesmoke;
+    display: grid;
+    grid-template-columns: repeat(3,300px);
+    grid-template-rows: repeat(2,300px); 
+    justify-content: center;
+    align-content: center;
+    grid-template-areas: 
+    "about about projects"
+    "about about other";
+}
+
+.im1-tile{
+    grid-area: about;
+    background-image: url(https://media.cntraveler.com/photos/5deea131a5b6180008b5ef27/master/w_1920%2Cc_limit/Bethlehem-Pennsylvania-cr-Douglas-Benedict-Photography%2C-LLC.jpg);
+    background-size: cover; 
+}
+
+
+.im2-tile{
+    grid-area: projects;
+    background-image: url(https://thumbs.dreamstime.com/z/panadero-concentrado-del-hombre-que-se-coloca-en-la-panader%C3%ADa-cerca-del-pan-92706399.jpg?w=992);
+    background-size: cover; 
+}
+
+.other-tile{
+    grid-area: other;
+    background-image: url(reindeer.webp);
+    background-size: cover; 
+}
+
+/* Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
+  display: block;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tile a {
+  display: block;
+  height: 100%;
+}
+
+.tile a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 2container trending */
+.container {
+    position:relative;
+    height: 350px;
+    width: auto;
+    top: 20px;
+    left: calc(35% - 300px);
+    display: flex;
+    background-color: #000;
+    
+  }
+  
+  .card {
+    display: flex;
+    height: 300px;
+    width: 450px;
+    background-color: #17141d;
+    border-radius: 20px;
+    box-shadow: -1rem 0 3rem #000;
+    margin-left: -50px;
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+  }
+  
+  .card:not(:first-child) {
+      margin-left: -50px;
+  }
+  
+  .card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+  }
+  
+  .card:hover ~ .card {
+    position: relative;
+    left: 50px;
+    transition: 0.4s ease-out;
+  }
+  
+  .title {
+    color: white;
+    font-weight: 300;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+  }
+  
+  .bar {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    height: 5px;
+    width: 150px;
+  }
+  
+  .emptybar {
+    background-color: #2e3033;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .filledbar {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    width: 0px;
+    height: 100%;
+    background: rgb(0,154,217);
+    background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+    transition: 0.6s ease-out;
+  }
+  
+  .card:hover .filledbar {
+    width: 120px;
+    transition: 0.4s ease-out;
+  }
+  
+  .circle {
+    position: absolute;
+    top: 150px;
+    left: calc(50% - 60px);
+  }
+  
+  .stroke {
+    stroke: white;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+    transition: 0.6s ease-out;
+  }
+  
+  svg {
+    fill: #17141d;
+    stroke-width: 2px;
+  }
+  
+  .card:hover .stroke {
+    stroke-dashoffset: 100;
+    transition: 0.6s ease-out;
+  }
+
+/* seccion more love */
+
+.band {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  
+  display: grid;
+  
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  
+}
+
+@media only screen and (min-width: 500px) {
+  
+  .item-1 {
+  grid-column: 1/ span 2;
+  }
+  .item-1 h1 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .band {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/* card */
+
+.card2 {
+  min-height: 100%;
+  background: whiter;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #444;
+  position: relative;
+  top: 0;
+  transition: all .1s ease-in;
+}
+
+.card:hover2 {
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+}
+
+.card article {
+  padding: 20px;
+  display: flex;
+  
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  
+}
+.card .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.card p { 
+  flex: 1; /* make p grow to fill available space*/
+  line-height: 1.4;
+}
+
+/* typography */
+h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+.card span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin: 2em 0 0 0;
+}
+/******Latest Histories***********/
+#about{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap:20px;
+  padding: 20px;
+
+  
+}
+
+@media (min-width: 768px) {
+  #about {
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+@media (min-width: 1024px) {
+  #about {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+#about .tile{
+  border-radius: 10px;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: white;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+#about .tile img {
+  width: 100%; 
+  height: auto;
+
+#about .tile-1 img{
+  
+  width: 300px;
+  height: 300px;
+}
+
+#about .tile-2 img{
+  
+  width: 300px;
+  height: 300px;
+}
+#about .tile-3 img{
+  
+  width: 300px;
+  height: 300px;
+}
+#about .tile-4 img{
+  
+  width: 300px;
+  height: 300px;
+}
+#about .tile-5 img{
+  
+  width: 300px;
+  height: 300px;
+}
+#about .tile-6 img{
+  
+  width: 300px;
+  height: 300px;
+}
+
+
+
+/******Footer***********/
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  box-shadow: 0 1px 8px #ddd;
+  width: 100%;
+}
+
+#foot-title {
+  font-size: 1.5em;
+}
+
+
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #555;
+  transition: all 0.3s ease 0s;
+}
+
+footer a:hover {
+  color: #b2dfdb;
+}
+}
